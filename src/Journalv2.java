@@ -48,17 +48,23 @@ class Journalv2 {
             String firstline = in.nextLine();
             bwr.write(firstline + "\n");
             System.out.println("You entered: " + firstline);
-            System.out.println("Would you like to add another line?");
-            String anotherline = in.nextLine();
-            switch (anotherline) {
-                case "yes" -> {
-                    System.out.println("Enter your second line.");
-                    String secondline = in.nextLine();
-                    bwr.write(secondline + "\n");
-                    System.out.println("You entered: " + secondline);
+            boolean anotherLineFlag = true;
+            while (anotherLineFlag) {
+                System.out.println("Would you like to add another line?");
+                String anotherline = in.nextLine();
+                switch (anotherline) {
+                    case "yes" -> {
+                        System.out.println("Enter another line.");
+                        String secondline = in.nextLine();
+                        bwr.write(secondline + "\n");
+                        System.out.println("You entered: " + secondline);
+                    }
+                    case "no" -> {
+                        System.out.println("Your line has been entered to the journal.");
+                        anotherLineFlag = false;
+                    }
+                    default -> System.out.println("Please enter a valid command");
                 }
-                case "no" -> System.out.println("Your line has been entered to the journal.");
-                default -> System.out.println("Please enter a valid command");
             }
         } catch (IOException e) {
             System.out.println("Error, your file could not be found: " + file.toString());

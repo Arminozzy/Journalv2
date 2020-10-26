@@ -8,9 +8,9 @@ public class ContinuousUserInput {
         System.out.println("You entered: " + firstline);
         System.out.println("Would you like to enter another line?");
 
-        while () {
+        /*while () {
 
-        }
+        }*/
 
     }
 }
